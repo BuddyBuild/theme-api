@@ -21,7 +21,7 @@ function generateMethod(book, body, examples) {
     // Render method body
     return Q()
     .then(function() {
-        return book.renderBlock('markdown', body);
+        return book.renderBlock('asciidoc', body);
     })
     .then(function(apiDefinition) {
         $apiDefinition.html(apiDefinition);
@@ -41,7 +41,7 @@ function generateMethod(book, body, examples) {
                 $example = $('<div class="api-method-sample" data-lang="'+example.lang+'" data-name="'+example.name+'"></div>');
             }
 
-            return book.renderBlock('markdown', example.body)
+            return book.renderBlock('asciidoc', example.body)
             .then(function(body) {
                 $example.html(body);
                 $apiCode.append($example);
